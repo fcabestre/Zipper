@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ec1cc41-0a64-4280-8292-6c769d9caf34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9ec1cc41-0a64-4280-8292-6c769d9caf34" name="Default" comment="" />
     <ignored path="Zipper.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,7 +61,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.22968198">
+            <state line="16" column="0" selection-start="186" selection-end="186" vertical-scroll-proportion="0.28268552">
               <folding />
             </state>
           </provider>
@@ -475,7 +470,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.22968198">
+        <state line="16" column="0" selection-start="186" selection-end="186" vertical-scroll-proportion="0.28268552">
           <folding />
         </state>
       </provider>
