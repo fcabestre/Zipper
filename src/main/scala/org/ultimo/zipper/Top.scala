@@ -1,3 +1,3 @@
-package org.utimo.zipper
+package org.ultimo.zipper
 
 case object Top extends Path
