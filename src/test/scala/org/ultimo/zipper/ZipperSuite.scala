@@ -4,12 +4,24 @@ import org.scalatest.FunSuite
 
 class ZipperSuite extends FunSuite {
 
-  val tree = Section(List(Section(List(Item ("a"), Item ("*"), Item ("b"))), Item("+"), Section(List(Item ("c"), Item("*"), Item("d")))))
+  val leftTerm = Section(List(Item ("a"), Item ("*"), Item ("b")))
+  val midTerm = Item("+")
+  val rightTerm = Section(List(Item ("c"), Item("*"), Item("d")))
+  val initialTree = Section(List(leftTerm, midTerm, rightTerm))
+  val initialLocation = new Location(initialTree, Top)
 
-  test("Basic location test") {
-    val loc = new Location(tree, Top)
-    val item = loc.goDown
-    assert(item == Item("+"))
+  test("goDown test") {
+    val loc = new Location(initialTree, Top)
+    val expectedLoc = new Location(leftTerm, Node(Nil, Top, List(midTerm, rightTerm)))
+    val result = loc.goDown
+    assert(result == expectedLoc)
+  }
+
+  test("goDown test") {
+    val loc = new Location(initialTree, Top)
+    val expectedLoc = new Location(leftTerm, Node(Nil, Top, List(midTerm, rightTerm)))
+    val result = loc.goDown
+    assert(result == expectedLoc)
   }
 
 }
