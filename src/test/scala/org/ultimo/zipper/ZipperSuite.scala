@@ -16,12 +16,4 @@ class ZipperSuite extends FunSuite {
     val result = loc.goDown
     assert(result == expectedLoc)
   }
-
-  test("goDown test") {
-    val loc = new Location(initialTree, Top)
-    val expectedLoc = new Location(leftTerm, Node(Nil, Top, List(midTerm, rightTerm)))
-    val result = loc.goDown
-    assert(result == expectedLoc)
-  }
-
 }

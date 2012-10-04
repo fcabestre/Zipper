@@ -1,6 +1,6 @@
 package org.ultimo.zipper
 
-case class Location[I] (t: Tree[I], p: Path[I]) {
+sealed case class Location[I] (t: Tree[I], p: Path[I]) {
 
   val tree = t
   val path = p
