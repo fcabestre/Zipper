@@ -2,9 +2,6 @@ package org.ultimo.zipper
 
 sealed case class Location[I] (t: Tree[I], p: Path[I]) {
 
-  val tree = t
-  val path = p
-
   def goLeft : Location[I] = p match {
     case Top => throw new NoSuchElementException("Left of Top")
     case Node(l :: left, up, right) => Location(l, Node(left, up, t::right))
@@ -27,4 +24,6 @@ sealed case class Location[I] (t: Tree[I], p: Path[I]) {
     case Section(t1 :: trees) => Location(t1, Node(Nil, p, trees))
     case _ => throw new NoSuchElementException("Down of empty")
   }
+
+  def change(t1 : Tree[I]) =  Location(t1, p)
 }

@@ -7,6 +7,7 @@ class ZipperSuite extends FunSuite {
   val leftTerm = Section(List(Item ("a"), Item ("*"), Item ("b")))
   val midTerm = Item("+")
   val rightTerm = Section(List(Item ("c"), Item("*"), Item("d")))
+  val otherTerm = Item("/")
   val initialTree = Section(List(leftTerm, midTerm, rightTerm))
   val initialLocation = new Location(initialTree, Top)
 
@@ -73,6 +74,12 @@ class ZipperSuite extends FunSuite {
   test("goRight: left of first") {
     intercept[NoSuchElementException] {
       Location(leftTerm, Node(Nil, Top, List(midTerm, rightTerm))).goLeft
+    }
+  }
+
+  test("change") {
+    expect(Location(otherTerm, Node(List(leftTerm), Top, List(rightTerm)))) {
+      Location(midTerm, Node(List(leftTerm), Top, List(rightTerm))).change(otherTerm)
     }
   }
 }
