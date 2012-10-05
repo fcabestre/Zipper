@@ -82,4 +82,64 @@ class ZipperSuite extends FunSuite {
       Location(midTerm, Node(List(leftTerm), Top, List(rightTerm))).change(otherTerm)
     }
   }
+
+  test("insertLeft: insert of top") {
+    intercept[NoSuchElementException] {
+      Location(initialTree, Top).insertLeft(otherTerm)
+    }
+  }
+
+  test("insertLeft: nominal") {
+    expect(Location(midTerm, Node(List(otherTerm, leftTerm), Top, List(rightTerm)))) {
+      Location(midTerm, Node(List(leftTerm), Top, List(rightTerm))).insertLeft(otherTerm)
+    }
+  }
+
+  test("insertRight: insert of top") {
+    intercept[NoSuchElementException] {
+      Location(initialTree, Top).insertRight(otherTerm)
+    }
+  }
+
+  test("insertRight: nominal") {
+    expect(Location(midTerm, Node(List(leftTerm), Top, List(otherTerm, rightTerm)))) {
+      Location(midTerm, Node(List(leftTerm), Top, List(rightTerm))).insertRight(otherTerm)
+    }
+  }
+
+  test("insertDown: insert of down") {
+    intercept[NoSuchElementException] {
+      Location(Item(""), Top).insertDown(otherTerm)
+    }
+  }
+
+  test("insertDown: nominal") {
+    expect(Location(otherTerm, Node(Nil, Top, List(leftTerm, midTerm, rightTerm)))) {
+      Location(initialTree, Top).insertDown(otherTerm)
+    }
+  }
+
+  test("delete: delete of top") {
+    intercept[NoSuchElementException] {
+      initialLocation.delete
+    }
+  }
+
+  test("delete: nominal") {
+    expect(Location(rightTerm, Node(List(leftTerm), Top, Nil))) {
+      Location(midTerm, Node(List(leftTerm), Top, List(rightTerm))).delete
+    }
+  }
+
+  test("delete: nominal right empty") {
+    expect(Location(leftTerm, Node(Nil, Top, Nil))) {
+      Location(rightTerm, Node(List(leftTerm), Top, Nil)).delete
+    }
+  }
+
+  test("delete: nominal left and right empty") {
+    expect(Location(Section(Nil), Top)) {
+      Location(leftTerm, Node(Nil, Top, Nil)).delete
+    }
+  }
 }

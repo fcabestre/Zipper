@@ -26,4 +26,26 @@ sealed case class Location[I] (t: Tree[I], p: Path[I]) {
   }
 
   def change(t1 : Tree[I]) =  Location(t1, p)
+
+  def insertLeft(t1 : Tree[I]) = p match {
+    case Top => throw new NoSuchElementException("Insert of top")
+    case Node(left, up, right) => Location(t, Node(t1 :: left, up, right))
+  }
+
+  def insertRight(t1 : Tree[I]) = p match {
+    case Top => throw new NoSuchElementException("Insert of top")
+    case Node(left, up, right) => Location(t, Node(left, up, t1 :: right))
+  }
+
+  def insertDown(t1 : Tree[I]) = t match {
+    case Item(_) => throw new NoSuchElementException("Insert of down")
+    case Section(sons) => Location(t1, Node(Nil, p, sons))
+  }
+
+  def delete : Location[I] = p match {
+    case Top => throw new NoSuchElementException("Delete of top")
+    case Node(left, up, r :: right) => Location(r, Node(left, up, right))
+    case Node(l :: left, up, Nil) => Location(l, Node(left, up, Nil))
+    case Node(Nil, up, Nil) => Location(Section(Nil), up)
+  }
 }
